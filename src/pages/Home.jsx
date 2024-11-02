@@ -1,9 +1,14 @@
 import React from 'react';
+import Banner from '../components/Banner';
 
 const Home = () => {
     return (
         <div>
-            Home Page
+           {/* Banner */}
+           <Banner></Banner>
+           {/* Heading */}
+           {/* Categories Tab */}
+           {/* Dynamic Nested Component */}
         </div>
     );
 };
