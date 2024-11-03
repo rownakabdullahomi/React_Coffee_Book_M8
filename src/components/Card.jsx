@@ -1,11 +1,14 @@
 /* eslint-disable react/prop-types */
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from "react-router-dom";
+import { FaTrashAlt } from "react-icons/fa";
 
-const Card = ({ coffee }) => {
+const Card = ({ coffee, handleRemove }) => {
+  const { pathname } = useLocation();
   const { name, image, category, origin, type, id, rating, popularity } =
     coffee || {};
+
   return (
-    <div className='flex relative'>
+    <div className="flex relative">
       <Link
         to={`/coffee/${id}`}
         className="transition  hover:scale-105 shadow-xl rounded-xl overflow-hidden"
@@ -22,6 +25,15 @@ const Card = ({ coffee }) => {
           <p>Popular: {popularity}</p>
         </div>
       </Link>
+
+      {pathname === "/dashboard" && (
+        <div
+          onClick={() => handleRemove(id)}
+          className="absolute p-3 bg-warning rounded-full cursor-pointer -top-5 -right-5"
+        >
+          <FaTrashAlt size={20}></FaTrashAlt>
+        </div>
+      )}
     </div>
   );
 };

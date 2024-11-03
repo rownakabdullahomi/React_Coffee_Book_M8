@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Heading from "../components/Heading";
-import { getAllFavorites } from "../utility";
+import { getAllFavorites, removeFavorite } from "../utility";
 import Card from "../components/Card";
 
 const Dashboard = () => {
@@ -9,6 +9,13 @@ const Dashboard = () => {
     const favorites = getAllFavorites();
     setCoffees(favorites);
   }, []);
+
+  const handleRemove = (id) => {
+    removeFavorite(id);
+    const favorites = getAllFavorites();
+    setCoffees(favorites);
+  };
+
   return (
     <div>
       <Heading
@@ -20,7 +27,11 @@ const Dashboard = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-12">
         {coffees.map((coffee) => (
-          <Card key={coffee.id} coffee={coffee}></Card>
+          <Card
+            key={coffee.id}
+            coffee={coffee}
+            handleRemove={handleRemove}
+          ></Card>
         ))}
       </div>
     </div>
