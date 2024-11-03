@@ -52,7 +52,7 @@ const Navbar = () => {
           </ul>
         </div>
         <Link to={`/`} className="text-xl">
-          COOK_BOOK
+          COFFEE_BOOK
         </Link>
       </div>
       <div className="navbar-end hidden lg:flex">
