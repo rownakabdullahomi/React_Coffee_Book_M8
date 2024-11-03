@@ -1,11 +1,16 @@
-import React from 'react';
+import Heading from "../components/Heading";
 
 const Dashboard = () => {
-    return (
-        <div>
-            Dashboard
-        </div>
-    );
+  return (
+    <div>
+      <Heading
+        title={"Welcome to Dashboard"}
+        subtitle={
+          "Manage coffees that you have previously added as favorite. You can view or remove them from here."
+        }
+      ></Heading>
+    </div>
+  );
 };
 
 export default Dashboard;
